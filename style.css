@@ -41,11 +41,14 @@ font-size: 1.2rem;
     height: 3rem;
     width: 15rem;
     border-radius: 1rem;
-    font-size: 1rem;
     border: .3rem solid white;
-    color: #ffffff;
-    
 }
+#options button a{
+    color: #ffffff;
+    font-size: 1rem;
+    text-decoration: none;
+}
+
 #options button:nth-child(1), button:nth-child(3), button:nth-child(5){
     
     height: 3rem;
