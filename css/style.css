@@ -1,0 +1,76 @@
+body {
+  background: rgb(246, 155, 199);
+  background: linear-gradient(
+    90deg,
+    rgba(246, 155, 199, 1) 12%,
+    rgba(250, 128, 232, 1) 93%
+  );
+  color: white;
+}
+#trademark-image {
+  background: url(../Photoroom-20240321_192007.png);
+  width: 5.5rem;
+  height: 5.5rem;
+  background-size: contain;
+  margin: 0 auto;
+}
+
+#image-profile {
+  width: 7rem;
+  height: 7rem;
+  margin: 0 auto 0;
+  background-image: url("avatar.jpg");
+  background-size: cover;
+  background-position: center center;
+  border-radius: 15rem;
+}
+
+#profile {
+  text-align: center;
+}
+
+#profile h1 {
+  font-size: 1.2rem;
+}
+#options {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+#options button {
+  margin: 0 auto 2rem;
+  height: 3rem;
+  width: 15rem;
+  border-radius: 1rem;
+  border: 0.3rem solid white;
+  display: block;
+  color: #fff;
+}
+#options a {
+  color: #ffffff;
+  font-size: 1rem;
+  text-decoration: none;
+  margin: 0 auto 2rem;
+  height: 3rem;
+  display: block;
+  padding: 0.5rem;
+}
+
+#options button:nth-child(1),
+button:nth-child(3),
+button:nth-child(5) {
+  height: 3rem;
+  width: 15rem;
+  border-radius: 1rem;
+  font-size: 1rem;
+  background-color: hsl(329, 91%, 61%);
+}
+
+#options button:nth-child(2),
+button:nth-child(4) {
+  height: 3rem;
+  width: 15rem;
+  border-radius: 1rem;
+  font-size: 1rem;
+  background-color: hsl(290, 50%, 83%);
+}
