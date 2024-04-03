@@ -1,0 +1,15 @@
+h1{
+    text-align: center;
+}
+.blog h2 {
+    text-align: center;
+}
+.blog-image{
+    margin: 0 auto;
+    width: 20rem;
+    height: 10rem;
+    background-image: url("../ilustracion_salud_mental.jpg");
+    background-size: cover;
+    background-position: center center;
+   
+}
