@@ -40,7 +40,26 @@ box-shadow: 5px 3px rgba(75, 66, 66, 0.158);
 
 .blog-pagination{
     display: block;
-    width: 2rem;
-    height: 2rem;
-    margin-top: 2rem;
+    width: 15rem;
+    height: 3rem;
+    margin: 0 auto;
+    border: 1px solid #000;
+    margin-bottom: 2rem;
+    margin-top: 3rem;
+    text-align: center;
+}
+
+
+.blog-pagination a{
+    margin-top: 0.5rem;
+    text-decoration: none;
+    font-size: 1.8rem;
+    display: inline-block;
+    color: #fff;
+    margin: 0.4rem 0.8rem 0;
+}
+
+.active {
+    background-color: hsl(290, 50%, 83%);
+    padding: 0.1rem 0.5rem;
 }
