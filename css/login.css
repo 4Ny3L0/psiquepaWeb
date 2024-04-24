@@ -30,6 +30,8 @@ input[type="password"] {
   outline: none;
   width: 100%;
   margin: 0 auto 3rem;
+  color: white;
+  font-size: 1rem;
 }
 
 .btn {
@@ -56,4 +58,15 @@ input[type="password"] {
   height: 3rem;
   display: block;
   padding: 0.5rem;
+}
+
+.login-form input[type="text"]::placeholder, input[type="password"]::placeholder{
+  color: white;
+  font-size: 1rem;
+}
+
+
+.login-form input[type="text"]:focus, input[type="password"]:focus{
+  color: white;
+  font-size: 1rem;
 }

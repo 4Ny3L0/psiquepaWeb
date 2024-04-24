@@ -5,9 +5,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Psiquepa | Inicio </title>
+    <script src="../js/index.js"></script>
     <link rel="stylesheet" href="../css/style.css" />
     <link rel="stylesheet" href="../css/login.css">
-    <link rel="shortcut icon" href="Photoroom-20240321_192007.png" type="image/x-icon">
+    <link rel="shortcut icon" href="../Photoroom-20240321_192007.png" type="image/x-icon">
 </head>
 
 <body>
@@ -17,9 +18,10 @@
         <h2>Login</h2>
         <div class="login-form">
             <form action="">
-                <input type="text" name="username" id="username" placeholder="Usuario o correo">
+                <input type="text" name="username" id="username" placeholder="Usuario o correo" autocomplete="off">
                 <input type="password" name="password" id="password" placeholder="Contraseña">
                 <input type="button" value="Iniciar sesion" id="login-btn" class="btn">
+                <span id="error"></span>
             </form>
             <a href="#" class="link">No tienes cuenta? Registrate!</a>
         </div>
