@@ -1,68 +1,77 @@
-(()=>{
+(() => {
+  document.addEventListener("DOMContentLoaded", () => {
+    login();
+  });
 
-    document.addEventListener('DOMContentLoaded', ()=>{
-        login()
-    })
-    
+  const login = () => {
+    let loginBtn = document.querySelector("#login-btn");
+    const userInput = document.querySelector("#username");
+    const passInput = document.querySelector("#password");
+    let inputsReadys = { username: true, password: true };
 
-    const login = ()=>{
-        let loginBtn = document.querySelector('#login-btn')
-        const userInput = document.querySelector('#username')
-        const passInput = document.querySelector('#password')
-        let inputsReadys = {'username': false, 'password': true}
+    userInput.addEventListener("blur", (e) => {
+      let error = inputsValidations(e, { error: false, element: e.target.id });
+      let existsError = showErrorMessage(error);
+      inputsReadys.username = existsError;
+      enableLogin(inputsReadys);
+    });
+    passInput.addEventListener("blur", (e) => {
+      let error = inputsValidations(e, { error: false, element: e.target.id });
+      inputsReadys.password = error.loginBtn;
+      let existsError = showErrorMessage(error);
+      inputsReadys.password = existsError;
+      enableLogin(inputsReadys);
+    });
 
-        userInput.addEventListener('blur', (e)=>{
-           let error =  inputsValidations(e, {'error': false, 'element':e.target.id})
-           console.log(error)
-           inputsReadys.username = error.loginBtn
-           let existsError = showErrorMessage(error)
-           let errorManager = {'username': existsError}
-            enableLogin(errorManager)
+    loginBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      if (!inputsReadys.username && !inputsReadys.password) {
+      } else {
+        showErrorMessage({
+          error: true,
+          message: "El campo usuario y contraseña son requeridos",
+        });
+      }
+    });
+  };
 
-        })
-        passInput.addEventListener('blur', (e)=>{
-            let error = inputsValidations(e, {'error': false, 'element':e.target.id})
-            inputsReadys.password = error.loginBtn
-            let existsError = showErrorMessage(error)
-            let errorManager = {'password': existsError}
-            enableLogin(errorManager)
-
-        })
-
-        
-        loginBtn.addEventListener('click',(e)=>{
-            e.preventDefault();
-        })
+  const inputsValidations = (input, error) => {
+    let inputValue = input.target.value;
+    if (inputValue.length == 0 || inputValue === undefined) {
+      error = {
+        error: true,
+        message: `El campo ${input.target.placeholder} es requerido`,
+        element: input.target.id,
+      };
+    } else {
+      error = { error: false, loginBtn: true };
     }
+    return error;
+  };
 
-    const inputsValidations = (input, error)=>{
-        let inputValue = input.target.value;
-                if(inputValue.length == 0 || inputValue === undefined){
-                    error = {
-                        'error' : true,
-                        'message' : `El campo ${input.target.placeholder} es requerido`,
-                        'element' : input.target.id
-                    }
-                }else{
-                    error = { 'error': false , 'loginBtn': true}
-                }
-            return error
+  const showErrorMessage = (error) => {
+    let errorElement = document.querySelector("#error");
+    errorElement.textContent = "";
+    if (error.error) {
+      errorElement.textContent = error.message;
+      setTimeout(() => {
+        errorElement.textContent = "";
+      }, 3000);
+      return true;
     }
-
-    const showErrorMessage = (error)=>{
-        let errorElement = document.querySelector('#error')
-        errorElement.textContent = ''
-        if(error.error){
-            console.log(error.message)
-            console.log(errorElement)
-            errorElement.textContent = error.message
-            return true
-        }
-        return false
+    return false;
+  };
+  const enableLogin = (inputsError) => {
+    let loginBtn = document.querySelector("#login-btn");
+    const userInput = document.querySelector("#username");
+    const passInput = document.querySelector("#password");
+    console.log(inputsError);
+    console.log(userInput.value.length);
+    console.log(passInput.value.length);
+    if (!inputsError.username && !inputsError.password) {
+      loginBtn.classList.add("active");
+      return;
     }
-    const enableLogin = (element)=>{
-        let errorManager = {'password': false, 'username': false}
-        errorManager.username = element
-        console.log(errorManager)
-    }
+    loginBtn.classList.remove("active");
+  };
 })();

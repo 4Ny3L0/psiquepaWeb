@@ -83,8 +83,3 @@ button:nth-child(4) {
   border-radius: 10px;
   box-shadow: 10px 10px 5px hotpink;
 }
-
-#error{
-  background-color: white;
-  color: red;
-}

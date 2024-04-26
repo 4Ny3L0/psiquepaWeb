@@ -18,7 +18,7 @@ h2 {
 }
 .login-form {
   width: 16rem;
-  margin: 0 auto;
+  margin: 2rem auto 0;
 }
 
 .login-form form input[type="text"],
@@ -46,8 +46,8 @@ input[type="password"] {
   background-color: hsl(290, 50%, 83%);
   border: none;
 }
-#login-btn:hover {
-  cursor: pointer;
+.btn:hover {
+  cursor: not-allowed;
 }
 
 .link {
@@ -60,13 +60,33 @@ input[type="password"] {
   padding: 0.5rem;
 }
 
-.login-form input[type="text"]::placeholder, input[type="password"]::placeholder{
+.login-form input[type="text"]::placeholder,
+input[type="password"]::placeholder {
   color: white;
   font-size: 1rem;
 }
 
-
-.login-form input[type="text"]:focus, input[type="password"]:focus{
+.login-form input[type="text"]:focus,
+input[type="password"]:focus {
   color: white;
   font-size: 1rem;
+}
+
+.active {
+  background-color: hsl(290, 75%, 70%);
+  cursor: pointer;
+}
+
+.active:hover {
+  cursor: pointer;
+}
+
+#error {
+  background-color: white;
+  color: rgb(255, 86, 86);
+  /* margin-bottom: 2rem; */
+  display: block;
+  width: max-content;
+  margin-left: auto;
+  margin-right: auto;
 }
