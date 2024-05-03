@@ -9,6 +9,24 @@
     const passInput = document.querySelector("#password");
     let inputsReadys = { username: true, password: true };
 
+    userInput.addEventListener("input", (e) => {
+      if (e.target.value.length > 0) {
+        inputsReadys.username = false;
+      } else {
+        inputsReadys.username = true;
+      }
+      enableLogin(inputsReadys);
+    });
+
+    passInput.addEventListener("input", (e) => {
+      if (e.target.value.length > 0) {
+        inputsReadys.password = false;
+      } else {
+        inputsReadys.password = true;
+      }
+      enableLogin(inputsReadys);
+    });
+
     userInput.addEventListener("blur", (e) => {
       let error = inputsValidations(e, { error: false, element: e.target.id });
       let existsError = showErrorMessage(error);
@@ -26,6 +44,11 @@
     loginBtn.addEventListener("click", (e) => {
       e.preventDefault();
       if (!inputsReadys.username && !inputsReadys.password) {
+        let userInfo = {
+          user_name: userInput.value,
+          password: passInput.value,
+        };
+        LoginService(userInfo);
       } else {
         showErrorMessage({
           error: true,
@@ -63,15 +86,56 @@
   };
   const enableLogin = (inputsError) => {
     let loginBtn = document.querySelector("#login-btn");
-    const userInput = document.querySelector("#username");
-    const passInput = document.querySelector("#password");
-    console.log(inputsError);
-    console.log(userInput.value.length);
-    console.log(passInput.value.length);
     if (!inputsError.username && !inputsError.password) {
       loginBtn.classList.add("active");
       return;
     }
     loginBtn.classList.remove("active");
+  };
+
+  const LoginService = async (userInfo) => {
+    let { user_name, password } = userInfo;
+    let body = { user_name, password };
+    let loginBtn = document.querySelector("#login-btn");
+    try {
+      loginBtn.classList.add("loader");
+      let inputValue = loginBtn.value;
+      loginBtn.value = "";
+      const request = await fetch("http://127.0.0.1:8000/login/", {
+        method: "POST",
+        headers: { "Content-type": "application/json" },
+        body: JSON.stringify(body),
+      });
+      const response = await request.json();
+      setTimeout(() => {
+        loginBtn.classList.remove("loader");
+        loginBtn.value = inputValue;
+        validateSesion(response);
+      }, 2000);
+    } catch (e) {
+      setTimeout(() => {
+        loginBtn.classList.remove("loader");
+        loginBtn.value = "Iniciar sesion";
+        showErrorMessage({
+          error: true,
+          message:
+            "Algo ocurrio con el sistema, ya estamos revisando. le pedimos disculpa",
+        });
+      }, 2000);
+    }
+  };
+
+  const validateSesion = (s) => {
+    console.log(s);
+    let { status } = s;
+    if (status == "PS-0000") {
+      console.log("Sesion iniciada correctamente");
+      window.location = "http://localhost:5500/pages/dashboard.html";
+      return;
+    }
+    showErrorMessage({
+      error: true,
+      message: "Usuario o contraseña incorrectos, valida e intenta nuevamente",
+    });
   };
 })();
