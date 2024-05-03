@@ -83,10 +83,34 @@ input[type="password"]:focus {
 
 #error {
   background-color: white;
-  color: rgb(255, 86, 86);
-  /* margin-bottom: 2rem; */
+  color: rgb(250, 127, 127);
   display: block;
-  width: max-content;
+  width: fit-content;
   margin-left: auto;
   margin-right: auto;
+  font-size: 1.2rem;
+}
+
+.loader {
+  width: 80px;
+  aspect-ratio: 2;
+  --_g: no-repeat
+    radial-gradient(circle closest-side, hsl(290, 70%, 44%), #faf6f600);
+  background: var(--_g) 0% 50%, var(--_g) 50% 50%, var(--_g) 100% 50%;
+  background-size: calc(100% / 3) 50%;
+  animation: l3 1s infinite linear;
+}
+@keyframes l3 {
+  20% {
+    background-position: 0% 0%, 50% 50%, 100% 50%;
+  }
+  40% {
+    background-position: 0% 100%, 50% 0%, 100% 50%;
+  }
+  60% {
+    background-position: 0% 50%, 50% 100%, 100% 0%;
+  }
+  80% {
+    background-position: 0% 50%, 50% 50%, 100% 100%;
+  }
 }
