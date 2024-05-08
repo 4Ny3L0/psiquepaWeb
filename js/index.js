@@ -95,13 +95,14 @@
 
   const LoginService = async (userInfo) => {
     let { user_name, password } = userInfo;
-    let body = { user_name, password };
+    let userFormated = user_name.toLowerCase();
+    let body = { user_name: userFormated, password: password };
     let loginBtn = document.querySelector("#login-btn");
     try {
       loginBtn.classList.add("loader");
       let inputValue = loginBtn.value;
       loginBtn.value = "";
-      const request = await fetch("http://127.0.0.1:8000/login/", {
+      const request = await fetch("http://localhost:8000/login/", {
         method: "POST",
         headers: { "Content-type": "application/json" },
         body: JSON.stringify(body),
