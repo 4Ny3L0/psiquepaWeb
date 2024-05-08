@@ -6,6 +6,7 @@ body {
     rgba(250, 128, 232, 1) 93%
   );
   color: white;
+  margin: 0;
 }
 #trademark-image {
   background: url(../Photoroom-20240321_192007.png);
@@ -82,4 +83,7 @@ button:nth-child(4) {
   display: block;
   border-radius: 10px;
   box-shadow: 10px 10px 5px hotpink;
+}
+footer {
+  margin-top: 3rem;
 }
