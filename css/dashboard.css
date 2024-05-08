@@ -133,16 +133,22 @@ nav a:hover {
     height: 1.5rem;
     position: absolute;
     right: 5%;
+    transition: transform 0.5s ease-in-out;
   }
   .menu:hover {
     cursor: pointer;
   }
   .nav-options {
+    display: none;
     text-align: center;
     width: 100%;
+    transition: all 0.5s ease;
   }
   .nav-options a {
     display: block;
     width: 100%;
+  }
+  .rotate {
+    transform: rotate(45deg);
   }
 }
