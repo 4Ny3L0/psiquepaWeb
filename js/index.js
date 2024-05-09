@@ -134,7 +134,7 @@
     let { status } = s;
     if (status == "PS-0000") {
       console.log("Sesion iniciada correctamente");
-      window.location = "http://localhost:5500/pages/dashboard.html";
+      window.location = "../pages/dashboard.html";
       return;
     }
     showErrorMessage({
