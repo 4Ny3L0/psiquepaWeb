@@ -1,0 +1,33 @@
+body {
+  display: flex;
+  flex-direction: column;
+}
+#title-document {
+  display: block;
+}
+
+.register-form {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+.register-form form {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  /* background-color: #2196f3; */
+  gap: 2rem;
+  /* grid-template-areas: ; */
+}
+footer {
+  margin-top: auto;
+}
+
+footer div {
+  display: block;
+}
+@media (max-width: 600px) {
+  .register-form form {
+    grid-template-columns: 1fr;
+  }
+}
