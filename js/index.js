@@ -102,11 +102,14 @@
       loginBtn.classList.add("loader");
       let inputValue = loginBtn.value;
       loginBtn.value = "";
-      const request = await fetch("http://localhost:8000/login/", {
-        method: "POST",
-        headers: { "Content-type": "application/json" },
-        body: JSON.stringify(body),
-      });
+      const request = await fetch(
+        "https://fortunate-exploration-production.up.railway.app/login/",
+        {
+          method: "POST",
+          headers: { "Content-type": "application/json" },
+          body: JSON.stringify(body),
+        }
+      );
       const response = await request.json();
       setTimeout(() => {
         loginBtn.classList.remove("loader");
