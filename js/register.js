@@ -2,7 +2,7 @@
   let inputsForm = {
     first_name: [{ content: '', message: "Por favor escribe tu nombre" , max_length:20}],
     last_name: [{ content:'', message: "Por favor escribe tu apellido" , max_length:20}],
-    mobile: [{ content:'', message: "Por favor escribe tu celular" , max_length:8}],
+    mobile: [{ content:'', message: "Por favor escribe tu celular" , max_length:9}],
     email: [{ content:'', message: "Por favor escribe tu correo" , max_length:30}],
     document_id: [{ content:'', message: "Por favor escribe tu cedula" , max_length:15}],
     username: [{ content:'', message: "Por favor escribe tu usuario" , max_length:10}],
@@ -102,9 +102,7 @@ const mobile_custom_input = (e)=>{
     e.target.value = new_value
   }
   if(e.inputType == 'insertText' && e.target.value.length > 9){
-    // e.preventDefault();
-    // errorElement.textContent = 'Este campo solo permite 8 digitos';
-    // dismissMessage();
+    
   }
 }
 
