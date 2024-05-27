@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="../css/login.css">
     <link rel="stylesheet" href="../css/register.css">
     <link rel="shortcut icon" href="../Photoroom-20240321_192007.png" type="image/x-icon">
+    <script src="../js/register.js"></script>
 </head>
 
 <body>
@@ -17,26 +18,27 @@
         <h1>PsiquePa Registro de usuarios</h1>
         <img src="../Photoroom-20240321_192007.png" alt="" class="trademark-image">
         <h2>Registro</h2>
-        <span id="error"></span>
+       
         <div class="register-form login-form">
-            <form action="">
-                <input type="text" name="first-name" placeholder="Tu nombre" autocomplete="off">
-                <input type="text" name="last-name" placeholder="Tu apellido" autocomplete="off">
-                <input type="text" name="mobile" id="mobile_number" placeholder="Tu celular" autocomplete="off">
-                <input type="text" name="email" id="email" placeholder="Tu correo" autocomplete="off">
-                <input type="text" name="document-id" placeholder="Tu cedula" autocomplete="off">
+            <form action="" autocomplete="off" id="register-form">
+                <input type="text" name="first-name" placeholder="Tu nombre" autocomplete="off" id="first_name">
+                <input type="text" name="last-name" placeholder="Tu apellido" autocomplete="off" id="last_name">
+                <input type="text" name="mobile" placeholder="Tu celular" autocomplete="off" id="mobile">
+                <input type="text" name="email" placeholder="Tu correo" autocomplete="off" id="email">
+                <input type="text" name="document-id" placeholder="Tu cedula" autocomplete="off" id="document_id">
                 <input type="text" name="username" id="username" placeholder="Usuario" autocomplete="off">
                 <input type="password" name="password" id="password" placeholder="Contraseña">
-                <input type="password" name="password" id="password-c" placeholder="Confirmar Contraseña">
-                <input type="button" value="Registrate" id="login-btn" class="btn">
+                <input type="password" name="password_c" id="password_c" placeholder="Confirmar Contraseña">
+                <input type="submit" value="Registrate" id="login-btn" class="btn active">
             </form>
         </div>
+        <span id="error"></span>
         <a href="admin.html" class="link">Ya eres administrador? inicia sesion aqui!</a>
-
+        
+        <footer>
+            <div id="trademark-image"></div>
+        </footer>
     </div>
-    <footer>
-        <div id="trademark-image"></div>
-    </footer>
 
 </body>
 

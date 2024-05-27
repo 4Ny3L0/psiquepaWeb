@@ -2,6 +2,11 @@ body {
   display: flex;
   flex-direction: column;
 }
+
+input:autfill {
+  -webkit-box-shadow: 0 0 0px 1000px white inset;
+}
+
 #title-document {
   display: block;
 }
@@ -20,11 +25,15 @@ body {
   /* grid-template-areas: ; */
 }
 footer {
+  display: sticky;
+  position: relative;
+  bottom: 0pt;
+  right: 0pt;
   margin-top: auto;
+  z-index: 10;
 }
 
 footer div {
-  display: block;
 }
 @media (max-width: 600px) {
   .register-form form {
