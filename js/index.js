@@ -103,7 +103,7 @@
       let inputValue = loginBtn.value;
       loginBtn.value = "";
       const request = await fetch(
-        "https://fortunate-exploration-production.up.railway.app/login/",
+        "https://fortunate-exploration-production.up.railway.app/login",
         {
           method: "POST",
           headers: { "Content-type": "application/json" },
@@ -115,7 +115,7 @@
         loginBtn.classList.remove("loader");
         loginBtn.value = inputValue;
         validateSesion(response);
-      }, 2000);
+      }, 2500);
     } catch (e) {
       setTimeout(() => {
         loginBtn.classList.remove("loader");
@@ -129,11 +129,18 @@
     }
   };
 
-  const validateSesion = (s) => {
-    console.log(s);
-    let { status } = s;
+  const validateSesion = async (s) => {
+    let { status, token } = s;
     if (status == "PS-0000") {
       console.log("Sesion iniciada correctamente");
+      localStorage.setItem('token', JSON.stringify({'token': token}))
+      const user_logged = await fetch("https://fortunate-exploration-production.up.railway.app/user/profile",
+        {
+          headers: {Authorization: token}
+        }
+      )
+      const response = await user_logged.json();
+      localStorage.setItem('user', JSON.stringify( response))
       window.location = "../pages/dashboard.html";
       return;
     }
