@@ -115,7 +115,7 @@
         loginBtn.classList.remove("loader");
         loginBtn.value = inputValue;
         validateSesion(response);
-      }, 2500);
+      }, 3000);
     } catch (e) {
       setTimeout(() => {
         loginBtn.classList.remove("loader");
@@ -125,7 +125,7 @@
           message:
             "Algo ocurrio con el sistema, ya estamos revisando. le pedimos disculpa",
         });
-      }, 2000);
+      }, 2500);
     }
   };
 
@@ -140,7 +140,7 @@
         }
       )
       const response = await user_logged.json();
-      localStorage.setItem('user', JSON.stringify( response))
+      localStorage.setItem('user', JSON.stringify(response))
       window.location = "../pages/dashboard.html";
       return;
     }

@@ -93,3 +93,8 @@ button:nth-child(4) {
 footer {
   margin-top: 3rem;
 }
+
+footer p{
+  text-align: center;
+}
+
